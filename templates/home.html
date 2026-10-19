@@ -1,0 +1,233 @@
+{{define "content"}}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow"><span class="pulse-dot"></span> Software Developer &amp; Technology Entrepreneur</p>
+      <h1>Building digital products that solve <em>real problems</em>.</h1>
+      <p class="hero-lead">
+        I'm Imaad Ssebintu — a Ugandan developer building practical web and mobile
+        applications, from business management and inventory systems to travel safety,
+        vehicle platforms, and education software.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary" data-magnetic><span>View my work</span></a>
+        <a href="#contact" class="btn btn-ghost" data-magnetic><span>Get in touch</span></a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-chip" data-parallax="0.03"><strong>Techflex</strong><span>Founder</span></div>
+        <div class="meta-chip" data-parallax="0.05"><strong>Kampala</strong><span>Uganda</span></div>
+        <div class="meta-chip" data-parallax="0.04"><strong>Go · React Native</strong><span>Core stack</span></div>
+      </div>
+    </div>
+
+    <div class="hero-stage" data-reveal>
+      <div class="hero-scene">
+        <div class="hero-glow"></div>
+        <div class="hero-photo-frame" data-tilt data-tilt-max="10" data-tilt-glare>
+          <div class="frame-ring"></div>
+          <div class="frame-inner">
+            <img src="/static/img/hero.jpg" alt="Imaad Ssebintu" width="1074" height="1300" fetchpriority="high">
+            <div class="frame-sheen"></div>
+          </div>
+        </div>
+        <div class="float-card float-card-a" data-parallax="0.08">
+          <span class="float-icon">⚡</span>
+          <div><strong>Full-stack</strong><span>Idea → deploy</span></div>
+        </div>
+        <div class="float-card float-card-b" data-parallax="0.06">
+          <span class="float-icon">◈</span>
+          <div><strong>Techflex</strong><span>Digital products</span></div>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-ring"></div>
+          <div class="orbit-dot"></div>
+        </div>
+      </div>
+      <div class="hero-badge">Techflex · Kampala</div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div class="container about-grid">
+    <div class="about-visual" data-reveal>
+      <div class="about-photo-scene">
+        <div class="about-photo">
+          <img src="/static/img/about-face.jpg" alt="Imaad Ssebintu, portrait" width="993" height="1200" loading="lazy">
+          <div class="frame-sheen"></div>
+        </div>
+        <div class="about-ring"></div>
+        <div class="stat-pill" data-parallax="0.05">
+          <strong>2021</strong>
+          <span>Building since</span>
+        </div>
+        <div class="stat-pill stat-pill-b" data-parallax="0.07">
+          <strong>5+</strong>
+          <span>Products shipped</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-copy" data-reveal>
+      <p class="section-label">About</p>
+      <h2>Practical software, built end to end.</h2>
+      <p>
+        I'm a software developer and technology entrepreneur focused on building practical
+        digital products. I hold a Bachelor of Science in Information Technology from
+        Kampala International University, and through <strong>Techflex</strong> I work on
+        websites, mobile applications, business platforms, and custom software.
+      </p>
+      <p>
+        My approach is straightforward: find a real-world problem, design a practical
+        solution, build it, integrate the required services, deploy it, and keep improving it.
+      </p>
+      <ul class="about-points">
+        <li>Full-stack ownership from idea to deployment</li>
+        <li>Business software for African markets and mobile money</li>
+        <li>Web, mobile, APIs, databases, and cloud infrastructure</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section projects">
+  <div class="container">
+    <div data-reveal>
+      <p class="section-label">Projects</p>
+      <h2 class="section-title">Selected work</h2>
+      <p class="section-intro">Products and platforms built through Techflex — inventory, travel safety, vehicles, education, and more.</p>
+    </div>
+    <div class="project-grid">
+      {{range .Projects}}
+      <article class="project-card" data-tilt data-tilt-max="7" data-tilt-glare data-reveal>
+        <div class="card-glow"></div>
+        <div class="project-card-top">
+          <span class="project-status">{{.Status}}</span>
+        </div>
+        <h3><a href="/projects/{{.Slug}}">{{.Name}}</a></h3>
+        <p class="project-tagline">{{.Tagline}}</p>
+        <p class="project-desc">{{.Description}}</p>
+        <div class="project-tech">
+          {{range .Tech}}<span>{{.}}</span>{{end}}
+        </div>
+        <a class="project-link" href="/projects/{{.Slug}}">View details →</a>
+        <div class="card-sheen"></div>
+      </article>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section services">
+  <div class="container">
+    <div data-reveal>
+      <p class="section-label">Services</p>
+      <h2 class="section-title">What I can build for you</h2>
+    </div>
+    <div class="services-grid">
+      {{range .Services}}
+      <div class="service-card" data-tilt data-tilt-max="6" data-tilt-glare data-reveal>
+        <div class="service-icon">{{.Icon}}</div>
+        <h3>{{.Title}}</h3>
+        <p>{{.Desc}}</p>
+        <div class="card-sheen"></div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section skills">
+  <div class="container">
+    <div data-reveal>
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">Technical toolkit</h2>
+    </div>
+    <div class="skills-grid">
+      {{range $group, $items := .Skills}}
+      <div class="skill-group" data-tilt data-tilt-max="5" data-reveal>
+        <h3>{{$group}}</h3>
+        <div class="skill-tags">
+          {{range $items}}<span>{{.}}</span>{{end}}
+        </div>
+        <div class="card-sheen"></div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section experience">
+  <div class="container exp-grid">
+    <div data-reveal>
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">Where I've worked</h2>
+      <div class="timeline">
+        {{range .Experience}}
+        <div class="timeline-item">
+          <div class="timeline-period">{{.Period}}</div>
+          <div class="timeline-body">
+            <h3>{{.Role}}</h3>
+            <p class="timeline-org">{{.Org}}</p>
+            <p>{{.Detail}}</p>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+    <div data-reveal>
+      <p class="section-label">Education</p>
+      <h2 class="section-title">Background</h2>
+      <div class="timeline">
+        {{range .Education}}
+        <div class="timeline-item">
+          <div class="timeline-period">{{.Year}}</div>
+          <div class="timeline-body">
+            <h3>{{.Title}}</h3>
+            <p class="timeline-org">{{.Org}}</p>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="container contact-grid">
+    <div class="contact-copy" data-reveal>
+      <p class="section-label">Contact</p>
+      <h2>Let's build something useful.</h2>
+      <p>
+        Have a product idea, a business system to digitise, or a project that needs
+        shipping? Send a message and I'll get back to you.
+      </p>
+      <ul class="contact-details">
+        <li><span>Phone</span><a href="tel:+256700752104">+256 700 752 104</a></li>
+        <li><span>Email</span><a href="mailto:info@flexduuka.com">info@flexduuka.com</a></li>
+        <li><span>GitHub</span><a href="https://github.com/imaadssebintu" target="_blank" rel="noopener">imaadssebintu</a></li>
+        <li><span>Location</span><span class="plain">Kampala, Uganda</span></li>
+      </ul>
+      <div class="contact-face">
+        <img src="/static/img/face.jpg" alt="" width="640" height="640" loading="lazy">
+      </div>
+    </div>
+    <form class="contact-form glass-panel" id="contact-form" method="post" action="/contact" data-reveal data-tilt data-tilt-max="3">
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" data-magnetic><span>Send message</span></button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      <div class="card-sheen"></div>
+    </form>
+  </div>
+</section>
+{{end}}

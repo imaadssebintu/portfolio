@@ -1,0 +1,50 @@
+{{define "content"}}
+<section class="project-hero">
+  <div class="container">
+    <a href="/#projects" class="back-link">← All projects</a>
+    <div class="project-hero-grid">
+      <div data-reveal>
+        <span class="project-status">{{.Project.Status}}</span>
+        <h1>{{.Project.Name}}</h1>
+        <p class="project-tagline large">{{.Project.Tagline}}</p>
+        <p class="project-lead">{{.Project.Description}}</p>
+        {{if .Project.URL}}
+        <a class="btn btn-primary" href="{{.Project.URL}}" target="_blank" rel="noopener" data-magnetic>
+          <span>Visit {{.Project.URLLabel}} ↗</span>
+        </a>
+        {{end}}
+      </div>
+      <div class="project-facts glass-panel" data-tilt data-tilt-max="4" data-tilt-glare data-reveal>
+        <div class="fact">
+          <h4>Tech stack</h4>
+          <div class="project-tech">
+            {{range .Project.Tech}}<span>{{.}}</span>{{end}}
+          </div>
+        </div>
+        <div class="fact">
+          <h4>Key features</h4>
+          <ul>
+            {{range .Project.Features}}<li>{{.}}</li>{{end}}
+          </ul>
+        </div>
+        <div class="card-sheen"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section project-body">
+  <div class="container narrow">
+    <div data-reveal>
+      <h2>About this project</h2>
+      <div class="prose">
+        {{range .Paragraphs}}<p>{{.}}</p>{{end}}
+      </div>
+    </div>
+    <div class="project-nav">
+      {{if .Prev}}<a href="/projects/{{.Prev.Slug}}" class="project-nav-link">← {{.Prev.Name}}</a>{{else}}<span></span>{{end}}
+      {{if .Next}}<a href="/projects/{{.Next.Slug}}" class="project-nav-link">{{.Next.Name}} →</a>{{end}}
+    </div>
+  </div>
+</section>
+{{end}}

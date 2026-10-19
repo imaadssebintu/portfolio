@@ -1,0 +1,57 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{if .Title}}{{.Title}} · {{end}}Imaad Ssebintu</title>
+  <meta name="description" content="{{if .MetaDesc}}{{.MetaDesc}}{{else}}Imaad Ssebintu — Ugandan software developer and technology entrepreneur. Building practical web and mobile products through Techflex.{{end}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-a" data-parallax="0.04"></div>
+    <div class="orb orb-b" data-parallax="0.07"></div>
+    <div class="orb orb-c" data-parallax="0.05"></div>
+  </div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo" data-magnetic>Imaad<span class="logo-dot">.</span></a>
+      <nav class="nav" id="nav">
+        <a href="/#about">About</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#services">Services</a>
+        <a href="/#skills">Skills</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact" class="nav-cta" data-magnetic>Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    {{template "content" .}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© {{.Year}} Imaad Ssebintu · Techflex — Transforming Ideas into Digital Reality.</p>
+      <div class="footer-links">
+        <a href="https://github.com/imaadssebintu" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:info@flexduuka.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
+{{end}}
